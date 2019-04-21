@@ -1,8 +1,8 @@
 spring:
   profiles:
-    active: local # ╠Б╨╩ х╞╟Ф ╪╠ец
+    active: local # Й╦╟КЁ╦ М≥≤Й╡╫ Л└═М┐²
 
-# local х╞╟Ф
+# local М≥≤Й╡╫
 ---
 spring:
   profiles: local
