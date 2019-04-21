@@ -1,1 +1,20 @@
+spring:
+  profiles:
+    active: local # 기본 환경 선택
 
+# local 환경
+---
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_bulletin_board?serverTimezone=UTC
+    username: khe0616
+    password: changheekim0616
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      enabled: true
