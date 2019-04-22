@@ -1,4 +1,4 @@
-package com.khe0613.springbulletinboard.web;
+package com.khe0613.springbulletinboard.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
