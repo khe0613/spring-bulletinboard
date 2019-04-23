@@ -17,8 +17,8 @@ var main = {
         $.ajax({
             type: 'POST',
             url: '/member',
-            dataType: 'json',
-            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',           // 서버로부터 반환되는 데이터 형식
+            contentType: 'application/json; charset=utf-8',     // 서버에 데이터를 보낼 때 사용(헤더)
             data: JSON.stringify(data)
         }).done(function (response) {
             // response는 javascript object 타입임
