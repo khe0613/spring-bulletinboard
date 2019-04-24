@@ -15,6 +15,25 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
+  thymeleaf:
+    cache: false
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
+
+
+# test 환경
+---
+spring:
+  profiles: test
+  datasource:
+    data: classpath:data-h2.sql # 시작할때 실행시킬 script
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
   h2:
     console:
       enabled: true
