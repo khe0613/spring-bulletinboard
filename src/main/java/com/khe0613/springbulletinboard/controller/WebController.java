@@ -15,4 +15,9 @@ public class WebController {
     public String getSignIn(){
         return "signup";
     }
+
+    @GetMapping("/test")
+    public String test(){
+        return "test";
+    }
 }
