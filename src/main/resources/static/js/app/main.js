@@ -17,6 +17,16 @@ var main = {
     },
 
     login: function(){
+        if($('#inputId').val() == ''){          // 아이디 미 입력시 로그인 요청 안됨
+            alert('아이디를 입력해주세요.');
+            return;
+        }
+
+        if($('#inputPassword').val() == ''){    // 비밀번호 미 입력시 로그인 요청 안됨
+            alert('비밀번호를 입력해주세요.');
+            return;
+        }
+
         var login_form = document.getElementsByClassName("form-signin")[0];
         login_form.submit();
     }
