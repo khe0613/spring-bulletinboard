@@ -19,26 +19,8 @@ var main = {
     login: function(){
         var login_form = document.getElementsByClassName("form-signin")[0];
         login_form.submit();
-
-
-/*
-        $.ajax({
-            type: 'GET',
-            url: '/member/' + data.id,
-            dataType: 'json',                                    // 서버로부터 반환되는 데이터 형식
-            contentType: 'application/json; charset=utf-8',     // 서버에 데이터를 보낼 때 사용(헤더)
-            data: JSON.stringify(data)
-        }).done(function (response) {
-            // response는 javascript object 타입임
-            alert('로그인 환영합니다.');
-            location.href= '/';
-        }).fail(function () {
-            alert('아이디/비밀번호가 일치하지 않습니다.');
-            location.reload();
-        });
-        */
-
     }
+
 };
 
 main.init();
