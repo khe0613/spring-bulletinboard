@@ -24,21 +24,66 @@
         }
     </style>
 
-    <!--Custom style-->
-    <link rel="stylesheet" href="/css/app/signup.css"/>
 </head>
 <body>
-<form class="form-sign">
-    <label for="inputId" class="sr-only">아이디</label>
-    <input type="text" id="inputId" class="form-control" placeholder="아이디" autocomplete="on" required autofocus>
-    <label for="inputPassword" class="sr-only">비밀번호</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="비밀번호" autocomplete="off" required autofocus>
-    <label for="inputName" class="sr-only">성명</label>
-    <input type="text" id="inputName" class="form-control" placeholder="성명" autocomplete="on" required autofocus>
-    <label for="inputTel" class="sr-only">연락처</label>
-    <input type="tel" id="inputTel" class="form-control" placeholder="연락처" autocomplete="on" required autofocus>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn-signup">가입 요청</button>
+
+<!--상단 네비게이션 바-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img src="/img/computer.png" alt="" width="30" height="30">
+        게시판</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/weather">날씨</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/posts">게시판</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/chatting">채팅</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="게시글 제목" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="게시글 검색">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!--회원가입 폼-->
+<div class="container mt-5">
+<form>
+    <div class="form-group">
+        <label for="inputId">아이디</label>
+        <input type="text" class="form-control" id="inputId" aria-describedby="inputIdHelp" placeholder="아이디" autocomplete="on" required autofocus>
+        <small id="inputIdHelp" class="form-text text-muted">아이디는 필수 입력사항 입니다.</small>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword">비밀번호</label>
+        <input type="password" class="form-control" id="inputPassword" aria-describedby="inputPasswordHelp" placeholder="비밀번호" autocomplete="off" required autofocus>
+        <small id="inputPasswordHelp" class="form-text text-muted">비밀번호는 필수 입력사항 입니다.</small>
+    </div>
+    <div class="form-group">
+        <label for="inputName">성명</label>
+        <input type="text" class="form-control" id="inputName" aria-describedby="inputNameHelp" placeholder="성명" autocomplete="on" required autofocus>
+        <small id="inputNameHelp" class="form-text text-muted">성명은 필수 입력사항 입니다.</small>
+    </div>
+    <div class="form-group">
+        <label for="inputTel">연락처</label>
+        <input type="tel" class="form-control" id="inputTel" aria-describedby="inputTelHelp" placeholder="연락처" autocomplete="on" required autofocus>
+        <small id="inputTelHelp" class="form-text text-muted">연락처는 필수 입력사항 입니다.</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="btn-signup">가입</button>
 </form>
+</div>
+
+
 
 <!--부트스트랩 js, popper, jquery 추가-->
 <script src="/js/lib/jquery.min.js"></script>
