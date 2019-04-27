@@ -17,10 +17,10 @@ var main = {
     },
 
     login: function(){
-        var data = {
-            id: $('#inputId').val(),
-            password: $('#inputPassword').val()
-        };
+        var login_form = document.getElementsByClassName("form-signin")[0];
+        login_form.submit();
+
+
 /*
         $.ajax({
             type: 'GET',
