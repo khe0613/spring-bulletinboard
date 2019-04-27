@@ -32,8 +32,8 @@
     <form class="form-signin" method="post" action="/login">
         <img src="/img/computer.png" alt="" width="70" height="70">
         <h1 class="h3 mb-3 font-weight-normal">로그인</h1>
-        <input type="text" id="inputId" class="form-control" name="id" placeholder="아이디" required autofocus autocomplete="on">
-        <input type="password" id="inputPassword" class="form-control" name="password" placeholder="비밀번호" required autofocus autocomplete="off">
+        <input type="text" id="inputId" class="form-control" name="id" placeholder="아이디" autofocus autocomplete="on">
+        <input type="password" id="inputPassword" class="form-control" name="password" placeholder="비밀번호" autofocus autocomplete="off">
         <div th:text="${login_message}" class="text-danger"></div>
         <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn-login">로그인</button>
         <button class="btn btn-lg btn-primary btn-block" type="button" id="btn-signup" >회원가입</button>
@@ -43,7 +43,7 @@
 
     <!--부트스트랩 js, popper, jquery 추가-->
     <script src="/js/lib/jquery.min.js"></script>
-    <script src="/js/lib/popper.min.js"></script>
+    <script src="/js/lib/popper.min.js"></script>s
     <script src="/js/lib/bootstrap.min.js"></script>
 
     <!--main.js(custom js) 추가-->

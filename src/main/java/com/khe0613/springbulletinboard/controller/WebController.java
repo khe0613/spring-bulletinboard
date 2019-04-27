@@ -20,7 +20,12 @@ public class WebController {
     private MemberService memberService;
 
     @GetMapping("/")
-    public String getMain(){
+    public String getMain(HttpSession session){
+        // 만약 로그인 되어있는 상태인 경우, '날씨' 페이지로 Redirect
+        if(session.getAttribute("userId") != null){
+            return "redirect:/weather";
+        }
+
         return "main";
     }
 
@@ -44,7 +49,7 @@ public class WebController {
         return "chatting";
     }
 
-    // 로그인 기능은 Restful 하지 않음
+    // 로그인 기능, 로그인 기능은 Restful 하지 않음
     @PostMapping("/login")
     public ModelAndView doLogin(@RequestParam Map<String, String> login_info, HttpSession session, ModelAndView modelAndView, RedirectAttributes redirectAttributes){
         Member member = memberService.getMember(login_info);
@@ -64,6 +69,16 @@ public class WebController {
         // 로그인 성공
         modelAndView.setViewName("redirect:/weather");
         session.setAttribute("userId", member.getId());
+
+        // 3분동안 아무런 요청이 없으면 세션 제거
+        session.setMaxInactiveInterval(180);
         return modelAndView;
+    }
+
+    // 로그아웃 기능, 로그아웃 기능은 Restful 하지 않음
+    @GetMapping("/logout")
+    public String doLogout(HttpSession session){
+        session.removeAttribute("userId");
+        return "redirect:/";
     }
 }
