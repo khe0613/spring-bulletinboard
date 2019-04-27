@@ -16,4 +16,18 @@ public class WebController {
         return "signup";
     }
 
+    @GetMapping("/weather")
+    public String getWeater(){
+        return "weather";
+    }
+
+    @GetMapping("/posts")
+    public String getPosts(){
+        return "posts";
+    }
+
+    @GetMapping("/chatting")
+    public String getChatting(){
+        return "chatting";
+    }
 }
