@@ -16,8 +16,4 @@ public class WebController {
         return "signup";
     }
 
-    @GetMapping("/test")
-    public String test(){
-        return "test";
-    }
 }
