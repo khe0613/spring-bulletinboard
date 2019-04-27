@@ -1,4 +1,4 @@
-package com.khe0613.springbulletinboard.controller;
+package com.khe0613.springbulletinboard.controller.restcontroller;
 
 import com.google.gson.JsonObject;
 import com.khe0613.springbulletinboard.dto.member.MemberSignupRequestDto;
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-public class WebRestController {
+public class MemberRestController {
     private MemberService memberService;
 
 
     @PostMapping("/member")
-    public String signupMember(@RequestBody MemberSignupRequestDto dto){
+    public String signUpMember(@RequestBody MemberSignupRequestDto dto){
         memberService.signup(dto);
 
         JsonObject obj= new JsonObject();
