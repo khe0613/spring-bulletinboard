@@ -19,6 +19,8 @@ public class MemberController {
     // 회원정보 조회(마이페이지)
     @GetMapping("/members")
     public String getMember(HttpSession session){
+        System.out.println("GET members");
+
         String id = session.getAttribute("userId").toString();
 
         // 현재 로그인되어 있는 계정의 정보를 조회
@@ -28,6 +30,8 @@ public class MemberController {
     // 회원정보 조회(마이페이지)
     @GetMapping("/members/{id}")
     public String getMember(@PathVariable("id") String id, Model model, HttpSession session) {
+        System.out.println("GET members/{id}");
+
         String loginId = session.getAttribute("userId").toString();
 
         // 현재 로그인된 회원이 다른 회원의 마이페이지 조회를 요청할 경우
@@ -37,7 +41,6 @@ public class MemberController {
         if(!id.equals(loginId)){
             return "redirect:/members/" + loginId;
         }
-
 
         Member member = memberService.getMember(id);
         model.addAttribute("userInfo", member);
