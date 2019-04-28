@@ -1,4 +1,4 @@
-package com.khe0613.springbulletinboard.domain.member;
+package com.khe0613.springbulletinboard.domain.members;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-public class Member {
+public class Members {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,7 @@ public class Member {
     private String tel;
 
     @Builder
-    public Member(String id, String password, String name, String tel) {
+    public Members(String id, String password, String name, String tel) {
         this.id = id;
         this.password = password;
         this.name = name;

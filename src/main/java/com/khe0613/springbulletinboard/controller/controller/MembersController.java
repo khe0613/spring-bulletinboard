@@ -1,7 +1,7 @@
 package com.khe0613.springbulletinboard.controller.controller;
 
-import com.khe0613.springbulletinboard.domain.member.Member;
-import com.khe0613.springbulletinboard.service.MemberService;
+import com.khe0613.springbulletinboard.domain.members.Members;
+import com.khe0613.springbulletinboard.service.MembersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +12,9 @@ import javax.servlet.http.HttpSession;
 
 
 @Controller
-public class MemberController {
+public class MembersController {
     @Autowired
-    private MemberService memberService;
+    private MembersService membersService;
 
     // 회원정보 조회(마이페이지)
     @GetMapping("/members")
@@ -44,7 +44,7 @@ public class MemberController {
             return "redirect:/members/" + loginId;
         }
 
-        Member member = memberService.getMember(id);
+        Members member = membersService.getMember(id);
         model.addAttribute("userInfo", member);
         return "mypage";
     }

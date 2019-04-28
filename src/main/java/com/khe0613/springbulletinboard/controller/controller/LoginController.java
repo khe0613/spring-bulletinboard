@@ -1,7 +1,7 @@
 package com.khe0613.springbulletinboard.controller.controller;
 
-import com.khe0613.springbulletinboard.domain.member.Member;
-import com.khe0613.springbulletinboard.service.MemberService;
+import com.khe0613.springbulletinboard.domain.members.Members;
+import com.khe0613.springbulletinboard.service.MembersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,12 +17,12 @@ import java.util.Map;
 @Controller
 public class LoginController {
     @Autowired
-    private MemberService memberService;
+    private MembersService membersService;
 
     // 로그인 기능, 로그인 기능은 Restful 하지 않음
     @PostMapping("/login")
     public ModelAndView doLogin(@RequestParam Map<String, String> login_info, HttpSession session, ModelAndView modelAndView, RedirectAttributes redirectAttributes){
-        Member member = memberService.getMember(login_info);
+        Members member = membersService.getMember(login_info);
 
         // 해당 유저가 존재하지 않거나, 비밀번호가 틀렸을때
         if(member == null || !member.getPassword().equals(login_info.get("password"))){

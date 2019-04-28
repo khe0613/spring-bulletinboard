@@ -1,4 +1,4 @@
-package com.khe0613.springbulletinboard.domain.member;
+package com.khe0613.springbulletinboard.domain.members;
 
 import org.junit.After;
 import org.junit.Test;
@@ -14,10 +14,10 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MemberRepositoryTest {
+public class MembersRepositoryTest {
 
     @Autowired
-    MemberRepository memberRepository;
+    MembersRepository membersRepository;
 
 
     @After
@@ -26,13 +26,13 @@ public class MemberRepositoryTest {
         이후 테스트 코드에 영향을 끼치지 않기 위해
         테스트 메소드가 끝날때 마다 repository 전체를 비우는 코드
          */
-        memberRepository.deleteAll();
+        membersRepository.deleteAll();
     }
 
     @Test
     public void 회원저장_불러오기(){
         //given
-        memberRepository.save(Member.builder()
+        membersRepository.save(Members.builder()
                     .id("khe0616")
                     .password("changheekim")
                     .name("홍길동")
@@ -40,10 +40,10 @@ public class MemberRepositoryTest {
                     .build());
 
         //when
-        List<Member> memberList = memberRepository.findAll();
+        List<Members> memberList = membersRepository.findAll();
 
         //then
-        Member member = memberList.get(0);
+        Members member = memberList.get(0);
         assertThat(member.getId(), is("khe0616"));
         assertThat(member.getPassword(), is("changheekim"));
         assertThat(member.getName(), is("홍길동"));

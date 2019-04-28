@@ -1,7 +1,7 @@
 package com.khe0613.springbulletinboard.controller.controller;
 
 
-import com.khe0613.springbulletinboard.service.MemberService;
+import com.khe0613.springbulletinboard.service.MembersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +11,6 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class WebController {
-    @Autowired
-    private MemberService memberService;
 
     @GetMapping("/")
     public String getMain(HttpSession session){
