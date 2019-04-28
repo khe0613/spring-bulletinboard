@@ -20,9 +20,10 @@
                 <a class="nav-link" href="/chatting">채팅</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <button th:if="${user_login}" class="btn btn-outline-success my-2 my-sm-0" id="btn-mypage" type="button">마이페이지</button>
-            <button th:if="${user_login}" class="btn btn-outline-success my-2 my-sm-0" id="btn-logout" type="button">로그아웃</button>
+        <form th:if="${user_login}" class="form-inline my-2 my-lg-0">
+            <span class="text-white mr-2"><span th:text="${userId}"></span>님 환영합니다</span>
+            <button class="btn btn-outline-success my-2 my-sm-0" id="btn-mypage" type="button">마이페이지</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" id="btn-logout" type="button">로그아웃</button>
         </form>
     </div>
 </nav>
