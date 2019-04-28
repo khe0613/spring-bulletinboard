@@ -1,6 +1,7 @@
 package com.khe0613.springbulletinboard.domain.posts;
 
 import com.khe0613.springbulletinboard.domain.BaseTimeEntity;
+import com.khe0613.springbulletinboard.domain.members.Members;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,13 +23,14 @@ public class Posts extends BaseTimeEntity {
     @Column(columnDefinition = "TEXT")
     private String content;
 
-    @Column(nullable = false)
-    private Long writer_number;
+    @ManyToOne
+    @JoinColumn(name = "writer_number")
+    private Members member;
 
     @Builder
-    public Posts(String title, String content, Long writer_number){
+    public Posts(String title, String content, Members member){
         this.title = title;
         this.content = content;
-        this.writer_number = writer_number;
+        this.member = member;
     }
 }
