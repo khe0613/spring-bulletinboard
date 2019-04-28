@@ -41,7 +41,7 @@ public class LoginController {
         session.setAttribute("userId", member.getId());
 
         // 3분동안 아무런 요청이 없으면 세션 제거
-        session.setMaxInactiveInterval(180);
+       // session.setMaxInactiveInterval(180);          효율적인 개발을 위해 잠시 주석처리
         return modelAndView;
     }
 
