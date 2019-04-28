@@ -25,4 +25,11 @@ public class MemberService {
     public Member getMember(Map<String, String> login_info){
         return memberRepository.findById(login_info.get("id"));
     }
+
+    @Transactional
+    // 회원가입할때의 검증과정(해당 아이디가 존재하는지 학인)에서 사용됨
+    public Member getMember(String id){
+        return memberRepository.findById(id);
+    }
+
 }
