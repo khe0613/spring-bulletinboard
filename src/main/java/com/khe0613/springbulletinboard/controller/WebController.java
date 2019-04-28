@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,9 +37,12 @@ public class WebController {
 
     @GetMapping("/weather")
     public String getWeater(Model model, HttpSession session){
-        if(session.getAttribute("userId") == null){     // 로그인 안되 있는 경우
+        String userId = session.getAttribute("userId").toString();
+
+        if(userId == null){     // 로그인 안되 있는 경우
         }else{                                                 // 로그인 되어 있는 경우
             model.addAttribute("user_login", true);
+            model.addAttribute("userId", userId);
         }
 
         return "weather";
@@ -46,9 +50,12 @@ public class WebController {
 
     @GetMapping("/posts")
     public String getPosts(Model model, HttpSession session){
-        if(session.getAttribute("userId") == null){     // 로그인 안되 있는 경우
+        String userId = session.getAttribute("userId").toString();
+
+        if(userId == null){     // 로그인 안되 있는 경우
         }else{                                                 // 로그인 되어 있는 경우
             model.addAttribute("user_login", true);
+            model.addAttribute("userId", userId);
         }
 
         return "posts";
@@ -56,9 +63,12 @@ public class WebController {
 
     @GetMapping("/chatting")
     public String getChatting(Model model, HttpSession session){
-        if(session.getAttribute("userId") == null){     // 로그인 안되 있는 경우
+        String userId = session.getAttribute("userId").toString();
+
+        if(userId == null){     // 로그인 안되 있는 경우
         }else{                                                 // 로그인 되어 있는 경우
             model.addAttribute("user_login", true);
+            model.addAttribute("userId", userId);
         }
         return "chatting";
     }
@@ -95,4 +105,35 @@ public class WebController {
         session.removeAttribute("userId");
         return "redirect:/";
     }
+
+
+    // 회원정보 조회
+    @GetMapping("/members")
+    public String getMember(HttpSession session){
+        String id = session.getAttribute("userId").toString();
+
+        // 현재 로그인되어 있는 계정의 정보를 조회
+        return "redirect:members/" + id;
+    }
+
+    // 회원정보 조회
+    @GetMapping("/members/{id}")
+    public String getMember(@PathVariable("id") String id, Model model, HttpSession session) {
+        String loginId = session.getAttribute("userId").toString();
+
+        // 현재 로그인된 회원이 다른 회원의 마이페이지 조회를 요청할 경우
+        // 요청이 그대로 수행되지 않고, 현재 로그인된 회원의 정보가 조회됨
+        // id -> Request된 id
+        // loginId -> 실제로 로그인 되어 있는 id
+        if(!id.equals(loginId)){
+            return "redirect:/members/" + loginId;
+        }
+
+
+        Member member = memberService.getMember(id);
+        model.addAttribute("userInfo", member);
+        return "mypage";
+    }
+
+
 }

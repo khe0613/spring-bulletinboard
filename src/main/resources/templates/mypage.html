@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chang Land : 마이페이지</title>
+    <head th:include="fragments/common-header.html :: commonHeader"></head>
+
+</head>
+<body>
+
+<!--상단 네비게이션 바-->
+<nav th:replace="fragments/common-navbar.html :: commonNavbar"></nav>
+
+<!--마이페이지 폼-->
+<div class="container mt-5">
+    <h1>마이페이지</h1>
+    <form class="mt-5">
+        <div class="form-group">
+            <label for="myId">아이디</label>
+            <input type="text" th:value="${userInfo.getId()}" class="form-control" id="myId" disabled>
+        </div>
+        <div class="form-group">
+            <label for="myPassword">비밀번호</label>
+            <input type="password" th:value="${userInfo.getPassword()}" class="form-control" id="myPassword" aria-describedby="myPasswordHelp" placeholder="비밀번호" autocomplete="off" required autofocus>
+            <small id="myPasswordHelp" class="form-text text-muted">비밀번호를 변경하실 수 있습니다.</small>
+        </div>
+        <div class="form-group">
+            <label for="myName">성명</label>
+            <input type="text" th:value="${userInfo.getName()}" class="form-control" id="myName" disabled>
+        </div>
+        <div class="form-group">
+            <label for="myTel">연락처</label>
+            <input type="tel" th:value="${userInfo.getTel()}" class="form-control" id="myTel" aria-describedby="myTelHelp" placeholder="연락처" autocomplete="on" required autofocus>
+            <small id="myTelHelp" class="form-text text-muted">연락처를 수정하실 수 있습니다!</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="btn-modify-member-info">회원 정보 수정</button>
+    </form>
+</div>
+
+<!--부트스트랩 js, popper, jquery 추가-->
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/popper.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
+
+<!--공통 네비게이션 바에 대한 script 추가-->
+<script th:replace="fragments/common-navbar.html :: commonNavbarScript"></script>
+
+</body>
+</html>

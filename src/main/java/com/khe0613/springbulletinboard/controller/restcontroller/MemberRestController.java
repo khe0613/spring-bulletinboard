@@ -1,13 +1,12 @@
 package com.khe0613.springbulletinboard.controller.restcontroller;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.khe0613.springbulletinboard.domain.member.Member;
 import com.khe0613.springbulletinboard.dto.member.MemberSignupRequestDto;
 import com.khe0613.springbulletinboard.service.MemberService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
@@ -30,7 +29,7 @@ public class MemberRestController {
             // json 형태로 리턴해야, client에서 success로 판단가능
             return obj.toString();
         }
-
-
     }
+
+
 }

@@ -17,7 +17,7 @@ var main = {
     },
     
     getMyPage: function () {
-        //location.href = '//';
+        location.href = '/members';
     }
 };
 
