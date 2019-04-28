@@ -31,6 +31,12 @@ public class MemberService {
         memberRepository.save(member);
     }
 
+    @Transactional
+    // 회원 탈퇴
+    public void leaveMember(String id){
+        memberRepository.deleteById(id);
+    }
+
 
     @Transactional
     // 로그인할때의 검증과정에서 사용됨

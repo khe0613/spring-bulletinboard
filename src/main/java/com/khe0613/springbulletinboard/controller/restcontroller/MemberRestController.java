@@ -9,12 +9,14 @@ import com.khe0613.springbulletinboard.service.MemberService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 @AllArgsConstructor
 public class MemberRestController {
     private MemberService memberService;
 
-    // 회원가입!
+    // 회원가입
     @PostMapping("/members/{id}")
     public String signUpMember(@RequestBody MemberSignupRequestDto dto, @PathVariable("id") String id){
         System.out.println("POST members/{id}");
@@ -41,6 +43,18 @@ public class MemberRestController {
 
         memberService.modifyMemberInfo(dto, id);
 
+        JsonObject obj = new JsonObject();
+        obj.addProperty("result", "success");
+        return obj.toString();
+    }
+
+    // 회원 탈퇴
+    @DeleteMapping("/members/{id}")
+    public String leaveMember(@PathVariable("id") String id, HttpSession session){
+        System.out.println("DELETE members/{id}");
+
+        memberService.leaveMember(id);
+        session.invalidate();
         JsonObject obj = new JsonObject();
         obj.addProperty("result", "success");
         return obj.toString();

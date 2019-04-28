@@ -28,7 +28,7 @@ var main = {
            // response는 javascript object 타입임
             if(response["result"] == "success"){
                 alert('회원정보 수정이 정상적으로 처리되었습니다.');
-                location.href= '/members/' + data.id;
+                location.reload();
             }
         }).fail(function () {
             alert('회원정보 수정에 실패하였습니다.')
@@ -36,8 +36,26 @@ var main = {
     },
 
     leaveMember: function () {          // 회원 탈퇴
+        var confirm_result = confirm('정말로 탈퇴 하시겠습니까?');
+        if(confirm_result == true){
+            $.ajax({
+                type: 'DELETE',
+                url: '/members/' + $('#myId').val(),
+                dataType:'json',
+            }).done(function (response) {
+                if(response['result'] == 'success'){
+                    alert('회원 탈퇴가 정상적으로 처리되었습니다.');
+                    location.href = '/';
+                }
+            }).fail(function () {
+                alert('회원 탈퇴에 실패하였습니다ㅣ.');
+            });
 
+        }else{
+            return;
+        }
     }
+
 };
 
 main.init();
