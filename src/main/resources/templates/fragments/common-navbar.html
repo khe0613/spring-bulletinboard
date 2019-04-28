@@ -21,7 +21,8 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-outline-success my-2 my-sm-0" id="btn-logout" type="button">로그아웃</button>
+            <button th:if="${user_login}" class="btn btn-outline-success my-2 my-sm-0" id="btn-mypage" type="button">마이페이지</button>
+            <button th:if="${user_login}" class="btn btn-outline-success my-2 my-sm-0" id="btn-logout" type="button">로그아웃</button>
         </form>
     </div>
 </nav>

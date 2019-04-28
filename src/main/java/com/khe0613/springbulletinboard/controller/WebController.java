@@ -35,17 +35,31 @@ public class WebController {
     }
 
     @GetMapping("/weather")
-    public String getWeater(){
+    public String getWeater(Model model, HttpSession session){
+        if(session.getAttribute("userId") == null){     // 로그인 안되 있는 경우
+        }else{                                                 // 로그인 되어 있는 경우
+            model.addAttribute("user_login", true);
+        }
+
         return "weather";
     }
 
     @GetMapping("/posts")
-    public String getPosts(){
+    public String getPosts(Model model, HttpSession session){
+        if(session.getAttribute("userId") == null){     // 로그인 안되 있는 경우
+        }else{                                                 // 로그인 되어 있는 경우
+            model.addAttribute("user_login", true);
+        }
+
         return "posts";
     }
 
     @GetMapping("/chatting")
-    public String getChatting(){
+    public String getChatting(Model model, HttpSession session){
+        if(session.getAttribute("userId") == null){     // 로그인 안되 있는 경우
+        }else{                                                 // 로그인 되어 있는 경우
+            model.addAttribute("user_login", true);
+        }
         return "chatting";
     }
 
