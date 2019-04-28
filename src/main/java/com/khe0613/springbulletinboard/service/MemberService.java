@@ -2,6 +2,7 @@ package com.khe0613.springbulletinboard.service;
 
 import com.khe0613.springbulletinboard.domain.member.Member;
 import com.khe0613.springbulletinboard.domain.member.MemberRepository;
+import com.khe0613.springbulletinboard.dto.member.MemberInfoModifyRequestDto;
 import com.khe0613.springbulletinboard.dto.member.MemberSignupRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,19 @@ public class MemberService {
     private MemberRepository memberRepository;
 
     @Transactional
+    // 회원 가입
     public void signup(MemberSignupRequestDto dto){
         memberRepository.save(dto.toEntity());
+    }
+
+    @Transactional
+    // 회원 정보 수정
+    public void modifyMemberInfo(MemberInfoModifyRequestDto dto, String id){
+        Member member = memberRepository.findById(id);
+        member.modifyPassword(dto.getPassword());
+        member.modifyTel(dto.getTel());
+
+        memberRepository.save(member);
     }
 
 
@@ -31,5 +43,6 @@ public class MemberService {
     public Member getMember(String id){
         return memberRepository.findById(id);
     }
+
 
 }

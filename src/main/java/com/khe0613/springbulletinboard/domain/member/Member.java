@@ -35,4 +35,15 @@ public class Member {
         this.name = name;
         this.tel = tel;
     }
+
+
+    // Entity 필드에 대한 값 변경이 필요한 경우,무분별한 setter 생성 보다는
+    // 아래와 같이, 명확히 그 목적과 의도를 나타낼 수 있는 메소드를 추가하는 것이 좋음
+    public void modifyPassword(String new_password){
+        this.password = new_password;
+    }
+
+    public void modifyTel(String new_tel){
+        this.tel = new_tel;
+    }
 }
