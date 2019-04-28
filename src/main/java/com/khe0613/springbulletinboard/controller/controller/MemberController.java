@@ -31,8 +31,10 @@ public class MemberController {
     @GetMapping("/members/{id}")
     public String getMember(@PathVariable("id") String id, Model model, HttpSession session) {
         System.out.println("GET members/{id}");
-
         String loginId = session.getAttribute("userId").toString();
+
+        // 로그인 되어 있지 않은 경우(loginId가 null)에 대한 처리 필요함
+
 
         // 현재 로그인된 회원이 다른 회원의 마이페이지 조회를 요청할 경우
         // 요청이 그대로 수행되지 않고, 현재 로그인된 회원의 정보가 조회됨
