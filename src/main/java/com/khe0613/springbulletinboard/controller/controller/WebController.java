@@ -1,8 +1,6 @@
 package com.khe0613.springbulletinboard.controller.controller;
 
 
-import com.khe0613.springbulletinboard.service.MembersService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,18 +38,6 @@ public class WebController {
         return "weather";
     }
 
-    @GetMapping("/posts")
-    public String getPosts(Model model, HttpSession session){
-        String userId = session.getAttribute("userId").toString();
-
-        if(userId == null){     // 로그인 안되 있는 경우
-        }else{                                                 // 로그인 되어 있는 경우
-            model.addAttribute("user_login", true);
-            model.addAttribute("userId", userId);
-        }
-
-        return "posts";
-    }
 
     @GetMapping("/chatting")
     public String getChatting(Model model, HttpSession session){
