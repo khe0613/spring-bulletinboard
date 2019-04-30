@@ -30,7 +30,7 @@
     <tr th:each="post : ${post_list}">
         <th scope="row" th:text="${post.getPost_number()}"></th>
         <td th:text="${post.getId()}"></td>
-        <td th:text="${post.getTitle()}"></td>
+        <td><a th:href="|/posts/${post.getPost_number()}|" th:text="${post.getTitle()}"></a></td>
         <td th:text="${post.getModified_date()}"></td>
     </tr>
     </tbody>
