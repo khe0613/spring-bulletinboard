@@ -45,7 +45,9 @@ public class MembersService {
     }
 
     @Transactional
-    // 회원가입할때의 검증과정(해당 아이디가 존재하는지 학인)에서 사용됨
+    // 사용처
+    // 1. 회원가입할때의 검증과정(해당 아이디가 존재하는지 학인)
+    // 2. 게시물 등록시, 게시자의 정보를 불러오기 위해
     public Members getMember(String id){
         return membersRepository.findById(id);
     }
