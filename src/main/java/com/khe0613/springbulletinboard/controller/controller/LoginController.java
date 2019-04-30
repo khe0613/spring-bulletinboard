@@ -48,7 +48,7 @@ public class LoginController {
     // 로그아웃 기능, 로그아웃 기능은 Restful 하지 않음
     @GetMapping("/logout")
     public String doLogout(HttpSession session){
-        session.removeAttribute("userId");
+        session.invalidate();
         return "redirect:/";
     }
 }
