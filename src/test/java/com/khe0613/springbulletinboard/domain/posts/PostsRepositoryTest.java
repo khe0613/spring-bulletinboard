@@ -35,18 +35,20 @@ public class PostsRepositoryTest {
     @Test
     public void BaseTimeEntity_등록(){
         // given
-        membersRepository.save(Members.builder()
-                .id("abc123")
-                .password("pwdabc")
-                .name("테스트")
-                .tel("010-1234-5678")
-                .build());
+        Members member = Members.builder()
+                         .id("abc123")
+                         .password("pwdabc")
+                         .name("테스트")
+                         .tel("010-1234-5678")
+                         .build();
+        membersRepository.save(member);
+
 
         LocalDateTime now = LocalDateTime.now();
         postsRepository.save(Posts.builder()
                 .title("테스트 게시물")
                 .content("하이")
-                .writer_number((long)1)
+                .member(member)
                 .build());
 
         // when
