@@ -1,5 +1,6 @@
 package com.khe0613.springbulletinboard.service;
 
+import com.khe0613.springbulletinboard.domain.posts.Posts;
 import com.khe0613.springbulletinboard.domain.posts.PostsRepository;
 import com.khe0613.springbulletinboard.dto.posts.PostsListResponseDto;
 import com.khe0613.springbulletinboard.dto.posts.PostsRegisterRequestDto;
@@ -30,4 +31,13 @@ public class PostsService {
     public void postRegister(PostsRegisterRequestDto dto){
         postsRepository.save(dto.toEntity());
     }
+
+    // 게시물 반환 함수
+    // 게시글 상세보기 기능에서 해당 게시글이
+    // 현재 로그인한 사용자의 글인지 아닌지 판단하기 위해 사용됨
+    @Transactional(readOnly = true)
+    public Posts getPost(Long post_number){
+        return postsRepository.findByPost_number(post_number);
+    }
+
 }
