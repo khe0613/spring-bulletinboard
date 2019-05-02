@@ -1,5 +1,6 @@
 package com.khe0613.springbulletinboard.domain.posts;
 
+import com.khe0613.springbulletinboard.dto.posts.PostsDetailResponseDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -12,6 +13,6 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
             "FROM Posts p " +
             "ORDER BY p.postNumber DESC ")
     Stream<Posts> findAllDesc();
-    Posts findByPostNumber(Long post_number);
+    PostsDetailResponseDto findByPostNumber(Long post_number);
 
 }
