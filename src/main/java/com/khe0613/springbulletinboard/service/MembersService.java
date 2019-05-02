@@ -37,13 +37,14 @@ public class MembersService {
         membersRepository.deleteById(id);
     }
 
-
+    // Members로 반환하지 말고 dto로 반환 할것 (추후 수정)
     @Transactional
     // 로그인할때의 검증과정에서 사용됨
     public Members getMember(Map<String, String> login_info){
         return membersRepository.findById(login_info.get("id"));
     }
 
+    // Members로 반환하지 말고 dto로 반환 할것 (추후 수정)
     @Transactional
     // 사용처
     // 1. 회원가입할때의 검증과정(해당 아이디가 존재하는지 학인)
