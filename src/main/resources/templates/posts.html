@@ -10,10 +10,6 @@
 <nav th:replace="fragments/common-navbar.html :: commonNavbar"></nav>
 
 
-<!--부트스트랩 js, popper, jquery 추가-->
-<script src="/js/lib/jquery.min.js"></script>
-<script src="/js/lib/popper.min.js"></script>
-<script src="/js/lib/bootstrap.min.js"></script>
 
 <div class="container mt-5">
     <h1>게시판</h1>
@@ -70,6 +66,10 @@
     </div>
 </div>
 
+<!--부트스트랩 js, popper, jquery 추가-->
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/popper.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
 
 <!--공통 네비게이션 바에 대한 script 추가-->
 <script th:replace="fragments/common-navbar.html :: commonNavbarScript"></script>

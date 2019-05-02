@@ -1,6 +1,7 @@
 package com.khe0613.springbulletinboard.controller.controller;
 
 import com.khe0613.springbulletinboard.domain.members.Members;
+import com.khe0613.springbulletinboard.dto.members.MembersInfoResponseDto;
 import com.khe0613.springbulletinboard.service.MembersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -62,9 +63,9 @@ public class MembersController {
             return modelAndView;
         }
 
-        Members member = membersService.getMember(id);
+        Members userInfo = membersService.getMember(id);
         modelAndView.setViewName("mypage");
-        modelAndView.addObject("userInfo", member);
+        modelAndView.addObject("userInfo", userInfo);
         modelAndView.addObject("user_login", true);
         modelAndView.addObject("userId", loginId);
 

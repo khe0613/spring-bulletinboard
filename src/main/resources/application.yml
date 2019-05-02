@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: local # 기본 환경 선택
+    active: test # 기본 환경 선택
 
 # local 환경
 ---
