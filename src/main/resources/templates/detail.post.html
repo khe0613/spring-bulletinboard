@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="|Chang Land : ${post.title}|"></title>
+    <title>Chang Land : 게시물 상세보기</title>
     <head th:include="fragments/common-header.html :: commonHeader"></head>
 </head>
 <body>
 
 <!--상단 네비게이션 바-->
 <nav th:replace="fragments/common-navbar.html :: commonNavbar"></nav>
+
+<div th:text="${detailedPost.getTitle()}"></div>
 
 
 <!--부트스트랩 js, popper, jquery 추가-->
