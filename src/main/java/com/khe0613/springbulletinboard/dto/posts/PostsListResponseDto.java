@@ -22,7 +22,7 @@ public class PostsListResponseDto {
                                         // String 타입으로 변경하여 response 해준다.
 
     public PostsListResponseDto(Posts entity){
-        this.post_number = entity.getPost_number();
+        this.post_number = entity.getPostNumber();
         this.title = entity.getTitle();
         this.id = entity.getMember().getId();
         this.modified_date = toStringDateTime(entity.getModified_date());

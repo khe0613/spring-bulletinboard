@@ -15,7 +15,8 @@ import javax.persistence.*;
 public class Posts extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long post_number;
+    @Column(name="post_number")
+    private Long postNumber;
 
     @Column(length = 200, nullable = false)
     private String title;

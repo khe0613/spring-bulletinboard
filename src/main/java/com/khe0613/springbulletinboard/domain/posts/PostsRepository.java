@@ -10,7 +10,8 @@ import java.util.stream.Stream;
 public interface PostsRepository extends JpaRepository<Posts, Long> {
     @Query("SELECT p " +
             "FROM Posts p " +
-            "ORDER BY p.post_number DESC ")
+            "ORDER BY p.postNumber DESC ")
     Stream<Posts> findAllDesc();
-    Posts findByPost_number();
+    Posts findByPostNumber(Long post_number);
+
 }

@@ -21,7 +21,7 @@ public class PostsDetailResponseDto {
                                         // String 타입으로 변경하여 response 해준다.
 
     public PostsDetailResponseDto(Posts entity){
-        this.post_number = entity.getPost_number();
+        this.post_number = entity.getPostNumber();
         this.title = entity.getTitle();
         this.content = entity.getContent();
         this.id = entity.getMember().getId();
