@@ -31,7 +31,25 @@
     </tr>
     </tbody>
 </table>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#postRegisterModal" data-whatever="post-register">글쓰기</button>
+    <div style="display: flex;">
+        <div style="flex: none;">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#postRegisterModal" data-whatever="post-register">글쓰기</button>
+        </div>
+        <div style="margin-left: auto;">
+            <select id="post-search-type">
+                <option value="title">제목</option>
+                <option value="writer">작성자</option>
+            </select>
+            <input type="text" id="post-search-keyword" placeholder="게시글 검색 키워드" autocomplete="on" autofocus>
+            <button type="button" class="btn btn-info" id="btn-posts-search">게시글 검색</button>
+        </div>
+    </div>
+        
+
+    
+
+    
+
 </div>
 
 
