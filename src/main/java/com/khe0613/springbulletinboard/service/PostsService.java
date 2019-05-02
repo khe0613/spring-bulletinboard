@@ -46,17 +46,9 @@ public class PostsService {
     // 게시글 수정
     @Transactional
     public void postModify(Long post_number, PostsModifyRequestDto dto){
-        Posts post = getPost(post_number);
+        Posts post = postsRepository.findByPostNumber(post_number);
         post.modifyTitle(dto.getTitle());
         post.modifyContent(dto.getContent());
-    }
-
-
-    // 게시글 Entity를 반환하는 함수
-    // 게시글 상세보기 기능의 게시글 수정 기능에 사용됨
-    @Transactional(readOnly = true)
-    protected Posts getPost(Long post_number){
-        return postsRepository.findByPostNumber(post_number);
     }
 
 

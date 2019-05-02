@@ -38,7 +38,6 @@ public class PostsRestController {
         System.out.println("PUT /posts/{post_number}");
         postsService.postModify(postNumber, dto);
 
-
         JsonObject obj = new JsonObject();
         obj.addProperty("result", "success");
         return obj.toString();
