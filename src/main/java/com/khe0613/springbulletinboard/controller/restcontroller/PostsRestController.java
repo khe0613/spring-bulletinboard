@@ -42,4 +42,15 @@ public class PostsRestController {
         obj.addProperty("result", "success");
         return obj.toString();
     }
+
+    // 게시글 삭제
+    @DeleteMapping("/posts/{post_number}")
+    public String postRemove(@PathVariable("post_number") Long post_number){
+        System.out.println("DELETE /posts/{post_number}");
+        postsService.postDelete(post_number);
+
+        JsonObject obj = new JsonObject();
+        obj.addProperty("result", "success");
+        return obj.toString();
+    }
 }

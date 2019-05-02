@@ -15,5 +15,6 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
     Stream<Posts> findAllDesc();
     PostsDetailResponseDto findDetailedPostByPostNumber(Long post_number);
     Posts findByPostNumber(Long post_number);
+    void deleteByPostNumber(Long post_number);
 
 }

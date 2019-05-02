@@ -51,5 +51,11 @@ public class PostsService {
         post.modifyContent(dto.getContent());
     }
 
+    // 게시글 삭제
+    @Transactional
+    public void postDelete(Long post_number){
+        postsRepository.deleteByPostNumber(post_number);
+    }
+
 
 }
