@@ -38,8 +38,9 @@ public class PostsService {
     // 현재 로그인한 사용자의  글인지 아닌지 판단하기 위해 사용됨
     @Transactional(readOnly = true)
     public PostsDetailResponseDto getDeailtedPost(Long post_number){
-        PostsDetailResponseDto detailed_post = new PostsDetailResponseDto(postsRepository.findByPost_number(post_number));
-        return detailed_post;
+        //PostsDetailResponseDto detailed_post = new PostsDetailResponseDto(postsRepository.findByPost_number(post_number));
+      //  return detailed_post;
+        return null;
     }
 
 }

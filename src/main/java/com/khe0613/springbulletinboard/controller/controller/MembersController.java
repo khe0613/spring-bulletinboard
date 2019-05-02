@@ -1,7 +1,6 @@
 package com.khe0613.springbulletinboard.controller.controller;
 
 import com.khe0613.springbulletinboard.domain.members.Members;
-import com.khe0613.springbulletinboard.dto.members.MembersInfoResponseDto;
 import com.khe0613.springbulletinboard.service.MembersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

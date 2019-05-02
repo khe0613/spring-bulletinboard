@@ -41,7 +41,7 @@ public class PostsController {
         return modelAndView;
     }
 
-    /*
+
     // 게시글 상세보기 기능
     @GetMapping("/posts/{post_number}")
     public ModelAndView getDetailPosts(@PathVariable("post_number") Long post_number, HttpSession session, ModelAndView modelAndView, RedirectAttributes redirectAttributes) {
@@ -56,24 +56,19 @@ public class PostsController {
 
         String loginId = session.getAttribute("userId").toString();
 
-        PostsDetailResponseDto deailed_post = postsService.
-        Posts target_post = postsService.getPost(post_number);      // 상세보기 할 게시물
-        Members writer = target_post.getMember();                   // 상세보기 할 게시물의 작성자
+        PostsDetailResponseDto target_post = postsService.getDeailtedPost(post_number);       // 상세보기 할 게시물
+        String writerId = target_post.getId();                                             // 상세보기 할 게시물의 작성자
 
 
-        if(loginId.equals(writer.getId())){     // 로그인한 사용자와 게시자가 같은 경우
+        if(loginId.equals(writerId)){     // 로그인한 사용자와 게시자가 같은 경우
             modelAndView.setViewName("detail-post");
-            modelAndView.addObject()
+            //modelAndView.addObject()
             return modelAndView;
         }else{                                   // 로그인한 사용자와 게시자가 다른 경우
-
+            modelAndView.setViewName("detail-post");
             return modelAndView;
         }
-
-
-
-        return null;
     }
 
-     */
+
 }
