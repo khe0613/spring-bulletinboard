@@ -69,7 +69,7 @@ public class PostsController {
             modelAndView.addObject("userId", session.getAttribute("userId").toString());    // 우측 상단에 로그인한 아이디 표시
             return modelAndView;
         }else{                                   // 로그인한 사용자와 게시자가 다른 경우
-            modelAndView.setViewName("detailedPost");
+            modelAndView.setViewName("detail.post");
             modelAndView.addObject("detailedPost", target_post);
             modelAndView.addObject("user_login", true);                              // 우측 상단에 마이페이지, 로그아웃 버튼 표시
             modelAndView.addObject("userId", session.getAttribute("userId").toString());    // 우측 상단에 로그인한 아이디 표시

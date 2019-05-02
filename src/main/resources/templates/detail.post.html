@@ -40,7 +40,7 @@
 
 
 <!--게시글 수정을 위한 모달-->
-<div class="modal fade" id="postModifyModal" tabindex="-1" role="dialog" aria-labelledby="postModifyModalLabel" aria-hidden="true">
+<div th:if="${myPost}" class="modal fade" id="postModifyModal" tabindex="-1" role="dialog" aria-labelledby="postModifyModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
