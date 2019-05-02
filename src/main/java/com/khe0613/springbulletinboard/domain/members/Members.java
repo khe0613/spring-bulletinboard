@@ -14,7 +14,8 @@ public class Members {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long member_number;
+    @Column(name="memberNumber")
+    private Long memberNumber;
 
     @Column(length = 20, nullable = false, unique = true)
     private String id;

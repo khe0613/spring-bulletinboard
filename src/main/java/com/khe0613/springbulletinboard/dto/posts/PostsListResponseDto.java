@@ -25,7 +25,7 @@ public class PostsListResponseDto {
         this.post_number = entity.getPostNumber();
         this.title = entity.getTitle();
         this.id = entity.getMember().getId();
-        this.modified_date = toStringDateTime(entity.getModified_date());
+        this.modified_date = toStringDateTime(entity.getModifiedDate());
     }
 
     private String toStringDateTime(LocalDateTime localDateTime){
