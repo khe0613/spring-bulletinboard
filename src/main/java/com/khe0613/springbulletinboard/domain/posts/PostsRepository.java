@@ -13,6 +13,7 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
             "FROM Posts p " +
             "ORDER BY p.postNumber DESC ")
     Stream<Posts> findAllDesc();
-    PostsDetailResponseDto findByPostNumber(Long post_number);
+    PostsDetailResponseDto findDetailedPostByPostNumber(Long post_number);
+    Posts findByPostNumber(Long post_number);
 
 }

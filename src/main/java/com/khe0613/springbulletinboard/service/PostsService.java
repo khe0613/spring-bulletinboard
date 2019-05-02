@@ -4,6 +4,7 @@ import com.khe0613.springbulletinboard.domain.posts.Posts;
 import com.khe0613.springbulletinboard.domain.posts.PostsRepository;
 import com.khe0613.springbulletinboard.dto.posts.PostsDetailResponseDto;
 import com.khe0613.springbulletinboard.dto.posts.PostsListResponseDto;
+import com.khe0613.springbulletinboard.dto.posts.PostsModifyRequestDto;
 import com.khe0613.springbulletinboard.dto.posts.PostsRegisterRequestDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -38,9 +39,25 @@ public class PostsService {
     // 현재 로그인한 사용자의  글인지 아닌지 판단하기 위해 사용됨
     @Transactional(readOnly = true)
     public PostsDetailResponseDto getDeailtedPost(Long post_number){
-        PostsDetailResponseDto detailed_post = postsRepository.findByPostNumber(post_number);
-
+        PostsDetailResponseDto detailed_post = postsRepository.findDetailedPostByPostNumber(post_number);
         return detailed_post;
     }
+
+    // 게시글 수정
+    @Transactional
+    public void postModify(Long post_number, PostsModifyRequestDto dto){
+        Posts post = getPost(post_number);
+        post.modifyTitle(dto.getTitle());
+        post.modifyContent(dto.getContent());
+    }
+
+
+    // 게시글 Entity를 반환하는 함수
+    // 게시글 상세보기 기능의 게시글 수정 기능에 사용됨
+    @Transactional(readOnly = true)
+    protected Posts getPost(Long post_number){
+        return postsRepository.findByPostNumber(post_number);
+    }
+
 
 }

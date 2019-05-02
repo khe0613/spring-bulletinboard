@@ -34,4 +34,14 @@ public class Posts extends BaseTimeEntity {
         this.content = content;
         this.member = member;
     }
+
+    // Entity 필드에 대한 값 변경이 필요한 경우,무분별한 setter 생성 보다는
+    // 아래와 같이, 명확히 그 목적과 의도를 나타낼 수 있는 메소드를 추가하는 것이 좋음
+    public void modifyTitle(String title){
+        this.title = title;
+    }
+
+    public void modifyContent(String content){
+        this.content = content;
+    }
 }
