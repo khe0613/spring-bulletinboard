@@ -28,12 +28,37 @@ public class PostsService {
                 .collect(Collectors.toList());
     }
 
+    // 게시물 리스트 검색 (글 제목으로 검색)
     @Transactional(readOnly = true)
     public List<PostsListResponseDto> findAllByTitleDesc(String title){
         return postsRepository.findAllByTitleDesc(title)
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
     }
+
+    /*
+     * 게시물 리스트 검색(작성자로 검색)
+     * Stream의 filter를 이용한 방법
+     *
+     * @Transactional(readOnly = true)
+     * public List<PostsListResponseDto> findAllByWriterDesc(String writer){
+     *      return postsRepository.findAllDesc()
+     *           .map(PostsListResponseDto::new)
+     *           .filter(postsListResponseDto -> postsListResponseDto.getId().equals(writer))
+     *           .collect(Collectors.toList());
+     * }
+    */
+
+    // 게시물 리스트 검색(작성자로 검색)
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllByWriterDesc(String writer){
+        return postsRepository.findAllByWriterDesc(writer)
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+
+
 
     // 게시물 등록
     @Transactional

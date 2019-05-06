@@ -80,8 +80,7 @@ public class PostsController {
 
     // 게시글 검색 기능 (제목으로 검색)
     @GetMapping("/posts/title/{keyword}")
-    public ModelAndView searchPostsByTitle(@RequestParam Map<String, String> search_info,
-                                           @PathVariable("keyword") String keyword,
+    public ModelAndView searchPostsByTitle(@PathVariable("keyword") String keyword,
                                            ModelAndView modelAndView,
                                            HttpSession session,
                                            RedirectAttributes redirectAttributes){
@@ -107,8 +106,35 @@ public class PostsController {
         return modelAndView;
     }
 
+
     // 게시글 검색 기능 (작성자로 검색)
-    @GetMapping("/posts")
+    @GetMapping("/posts/writer/{keyword}")
+    public ModelAndView searchPostByWriter(@PathVariable("keyword") String keyword,
+                                           ModelAndView modelAndView,
+                                           HttpSession session,
+                                           RedirectAttributes redirectAttributes){
+        System.out.println("GET /posts/writer/{keyword}");
+
+        // 로그인 안되어 있는 경우
+        if(session.getAttribute("userId") == null){
+            String login_message = "로그인이 필요한 서비스입니다.";
+
+            modelAndView.setViewName("redirect:/");
+            redirectAttributes.addFlashAttribute("login_message", login_message);
+            return modelAndView;
+        }
+
+        String loginId = session.getAttribute("userId").toString();
+
+        modelAndView.setViewName("posts");
+        modelAndView.addObject("post_list", postsService.findAllByWriterDesc(keyword));
+        modelAndView.addObject("user_login", true);
+        modelAndView.addObject("userId", session.getAttribute("userId").toString());
+
+
+
+        return modelAndView;
+    }
 
 
 
