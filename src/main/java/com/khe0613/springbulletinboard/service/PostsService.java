@@ -66,9 +66,8 @@ public class PostsService {
         postsRepository.save(dto.toEntity());
     }
 
-    // 게시물 반환 함수
-    // 게시글 상세보기 기능에서 해당 게시글이
-    // 현재 로그인한 사용자의  글인지 아닌지 판단하기 위해 사용됨
+
+    // 게시글 상세 내용 조회(반환)
     @Transactional(readOnly = true)
     public PostsDetailResponseDto getDeailtedPost(Long post_number){
         PostsDetailResponseDto detailed_post = postsRepository.findDetailedPostByPostNumber(post_number);
