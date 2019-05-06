@@ -28,6 +28,13 @@ public class PostsService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllByTitleDesc(String title){
+        return postsRepository.findAllByTitleDesc(title)
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
     // 게시물 등록
     @Transactional
     public void postRegister(PostsRegisterRequestDto dto){
