@@ -16,7 +16,7 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
 
     @Query("SELECT p " +
             "FROM Posts p " +
-            "WHERE p.title like concat('%', :searchTitle, '%') " +
+            "WHERE lower(p.title) like concat('%', :searchTitle, '%') " +
             "ORDER BY p.postNumber DESC")
     Stream<Posts> findAllByTitleDesc(@Param("searchTitle") String searchTitle);
 

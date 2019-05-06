@@ -99,7 +99,7 @@ public class PostsController {
         String loginId = session.getAttribute("userId").toString();
 
         modelAndView.setViewName("posts");
-        modelAndView.addObject("post_list", postsService.findAllByTitleDesc(keyword));
+        modelAndView.addObject("post_list", postsService.findAllByTitleDesc(keyword.toLowerCase()));
         modelAndView.addObject("user_login", true);
         modelAndView.addObject("userId", session.getAttribute("userId").toString());
 
