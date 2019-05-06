@@ -80,6 +80,8 @@ public class PostsService {
         Posts post = postsRepository.findByPostNumber(post_number);
         post.modifyTitle(dto.getTitle());
         post.modifyContent(dto.getContent());
+
+        postsRepository.save(post);
     }
 
     // 게시글 삭제

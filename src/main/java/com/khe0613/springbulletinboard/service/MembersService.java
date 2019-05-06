@@ -28,8 +28,7 @@ public class MembersService {
         member.modifyPassword(dto.getPassword());
         member.modifyTel(dto.getTel());
 
-        // Entity 객체를 수정하면 데이터베이스에 반영됨 (save 함수 필요없음)
-        // membersRepository.save(member);
+        membersRepository.save(member);
     }
 
     @Transactional
